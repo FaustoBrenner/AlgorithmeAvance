@@ -61,7 +61,7 @@ class SimilarityCriterium
 class CostFunction
 {
     public : 
-	virtual double operator () (Parameters param) const = 0;
+	virtual double operator () (VecDoub param) const = 0;
 };
 
 class MyTransform : Transform
@@ -85,7 +85,7 @@ public :
 class MyCostFunction : CostFunction
 {
 public :
-	double operator () (Parameters param);
+	double operator () (VecDoub param);
 };
 
 // Partie IV
