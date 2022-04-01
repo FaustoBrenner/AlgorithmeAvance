@@ -25,16 +25,15 @@ public:
     Image(string filename);
     Image(int rows, int cols);
 
-    void readFromFile(string filename);
-    void writeToFile(string filename);
-
     int nrows();
     int ncols();
 
     void deform(Image &outImg, const Parameters &param, InterpolationFunction *interpolation, Transform *transform);
 };
 
-
+void readFromFile(Image &im, string filename);
+void writeToFile(const Image &im, string filename);
+ 
 // Abstract function classes
 class Transform
 {
