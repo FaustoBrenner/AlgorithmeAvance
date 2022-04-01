@@ -54,12 +54,6 @@ class InterpolationFunction
 	virtual double operator () (const Image &image, const Point &p, int &OK) const = 0;
 };
 
-class CostFunction
-{
-    public : 
-	virtual double operator () (const Parameters &param) const = 0;
-};
-
 // Concrete classes that define the functions we will use
 class MyTransform : Transform
 {
@@ -79,13 +73,13 @@ public :
 	double operator () (const Image &image, const Point &p, int &OK);
 };
 
-class MyCostFunction : CostFunction
+class CostFunction
 {
 public :
-    MyCostFunction(const Image &I, const Image &Iref, SimilarityCriterium *similarity, InterpolationFunction *interpolation);
+    CostFunction(const Image &I, const Image &Iref, SimilarityCriterium *similarity);
 	double operator () (const Parameters &param);
 };
 
 // in : images I and Iref, and cost, similarity and interpolation functions
 // out : estimated parameters outParam
-void run(const Image &I, const Image &Iref, const Parameters &inParam, Parameters &outParam, MyCostFunction costFunc, SimilarityCriterium *similarity, InterpolationFunction *interpolation);
+void run(const Image &I, const Image &Iref, const Parameters &inParam, Parameters &outParam, CostFunction costFunc, SimilarityCriterium *similarity, InterpolationFunction *interpolation);
