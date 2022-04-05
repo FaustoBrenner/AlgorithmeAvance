@@ -1,6 +1,6 @@
-#include "registration.h"
 #include <math.h>
-#include "nr3.h"
+#include "../include/registration.h"
+#include "../include/nr3.h"
 
 int main()
 {
@@ -19,7 +19,13 @@ int main()
 
     CostFunction myCostFunction(I_float, I_ref, SimCrit, IntFunc, T);
     
+    // Estimate the transformation between the images
     run(inParams, outParams, myCostFunction);
+
+    // Apply the estimated transformation to the non-reference image
+    Image finalImg;
+    I_float->deform(finalImg, outParams, IntFunc, T);
+    writeToFile(finalImg.im, "data/final.pgm");
 
     return 1;
 }
