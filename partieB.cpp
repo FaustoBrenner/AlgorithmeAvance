@@ -1,9 +1,6 @@
 #include <iostream>
 #include "registration.h"
 
-
-
-
 Image::Image()
 {
   im.assign(1,1,0);

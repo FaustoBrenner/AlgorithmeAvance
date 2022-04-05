@@ -2,7 +2,7 @@
 #include <cmath>
 
 
-double MySimilarityCriterium::operator () (const Image &im1, const Image &im2)
+double MySimilarityCriterium::operator () (const Image &im1, const Image &im2) const
 {
     double sum = 0;
 

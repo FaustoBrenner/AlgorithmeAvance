@@ -1,8 +1,9 @@
+#define _USE_MATH_DEFINES
 #include "registration.h"
 #include <cmath>
 #include "nr3.h"
 
-Point MyTransform :: operator () (Point p, const Parameters &param)
+Point MyTransform :: operator () (Point p, const Parameters &param) const
 {
     int new_x = (int) param.tx
                         + p.x*cos(param.theta*M_PI/180) - 

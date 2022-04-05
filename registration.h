@@ -67,19 +67,19 @@ class InterpolationFunction
 class MyTransform : Transform
 {
     public : 
-	Point operator () (Point p, const Parameters &param);
+	Point operator () (Point p, const Parameters &param) const;
 };
 
 class MySimilarityCriterium : SimilarityCriterium
 {
 public :
-	double operator () (const Image &im1, const Image &im2);
+	double operator () (const Image &im1, const Image &im2) const;
 };
 
 class MyInterpolationFunction : InterpolationFunction
 {
 public :
-	double operator () (const Image &image, const Point &p, int &OK);
+	double operator () (const Image &image, const Point &p, int &OK) const;
 };
 
 class CostFunction

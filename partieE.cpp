@@ -1,6 +1,6 @@
 #include "registration.h"
 
-double MyInterpolationFunction::operator() (const Image &image, const Point &p, int &OK)
+double MyInterpolationFunction::operator() (const Image &image, const Point &p, int &OK) const
 {
     int row = image.nrows(),  col = image.ncols();
     double x = p.x, y = p.y, res;
