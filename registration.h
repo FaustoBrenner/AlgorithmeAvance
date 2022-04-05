@@ -34,8 +34,9 @@ public:
     int nrows () const;
     int ncols () const;
 
-    bool isValidPoint(int row, int col) const;
+    void setMask(int row, int col, double value);
 
+    bool isValidPoint(int row, int col) const;
     void deform(Image &outImg, const Parameters &param, InterpolationFunction *interpolation, Transform *transform) const;
 };
 
