@@ -64,19 +64,19 @@ class InterpolationFunction
 };
 
 // Concrete classes that define the functions we will use
-class MyTransform : Transform
+class MyTransform : public Transform
 {
     public : 
 	Point operator () (Point p, const Parameters &param) const;
 };
 
-class MySimilarityCriterium : SimilarityCriterium
+class MySimilarityCriterium : public SimilarityCriterium
 {
 public :
 	double operator () (const Image &im1, const Image &im2) const;
 };
 
-class MyInterpolationFunction : InterpolationFunction
+class MyInterpolationFunction : public InterpolationFunction
 {
 public :
 	double operator () (const Image &image, const Point &p, int &OK) const;
