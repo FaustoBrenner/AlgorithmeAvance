@@ -2,7 +2,7 @@
 #include <math.h>
 #include "nr3.h"
 
-void main()
+int main()
 {
     // Read images from files
     Image* I_float = new Image("data/floating.pgm");
@@ -18,6 +18,8 @@ void main()
     Transform* T = new MyTransform();
 
     CostFunction myCostFunction(I_float, I_ref, SimCrit, IntFunc, T);
-    //run()
     
+    run(inParams, outParams, myCostFunction);
+
+    return 1;
 }
