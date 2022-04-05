@@ -33,6 +33,13 @@ Parameters::Parameters(VecDoub params)
   theta = params[2];
 }
 
+Parameters::Parameters(double tx, double ty, double theta)
+{
+  this->tx = tx;
+  this->ty = ty;
+  this->theta = theta;
+}
+
 VecDoub Parameters::toVecDoub() const
 {
   VecDoub vec = VecDoub(3);

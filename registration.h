@@ -17,6 +17,7 @@ struct Point
 struct Parameters
 {
     double tx, ty, theta;
+    Parameters(double tx, double ty, double theta);
     Parameters(VecDoub params);
     VecDoub toVecDoub() const;
 };
