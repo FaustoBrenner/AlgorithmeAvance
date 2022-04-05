@@ -17,7 +17,7 @@ Point::Point(int a, int b)
   y = b;
 }
 
-VecDoub Point::toVecDoub()
+VecDoub Point::toVecDoub() const
 {
   VecDoub vec = VecDoub(2);
   vec[0] = x;
@@ -33,7 +33,7 @@ Parameters::Parameters(VecDoub params)
   theta = params[2];
 }
 
-VecDoub Parameters::toVecDoub()
+VecDoub Parameters::toVecDoub() const
 {
   VecDoub vec = VecDoub(3);
   vec[0] = tx;

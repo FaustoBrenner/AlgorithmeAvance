@@ -40,8 +40,8 @@ public:
     void deform(Image &outImg, const Parameters &param, InterpolationFunction *interpolation, Transform *transform) const;
 };
 
-void readFromFile(Image &im, string filename);
-void writeToFile(const Image &im, string filename);
+void readFromFile(MatDoub &im, string filename);
+void writeToFile(const MatDoub &im, string filename);
  
 // Abstract function classes
 class Transform
