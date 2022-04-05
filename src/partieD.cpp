@@ -1,5 +1,5 @@
-#include "registration.h"
 #include <cmath>
+#include "../include/registration.h"
 
 
 double MySimilarityCriterium::operator () (const Image &im1, const Image &im2) const

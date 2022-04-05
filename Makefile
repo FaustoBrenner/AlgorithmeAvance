@@ -9,6 +9,6 @@ all: main.cpp $(PARTIES)
 	g++ $(PARTIES) main.cpp -o $(TARGET_EXE)
 
 clean:
-	rm -rf $(OUT_DIR) $(TARGET_EXE)
+	rm -rf *.o $(TARGET_EXE)
 
 redo: clean all
