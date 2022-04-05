@@ -1,5 +1,5 @@
 #include <iostream>
-#include "registration.h"
+#include "../include/registration.h"
 
 Image::Image()
 {

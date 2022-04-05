@@ -1,7 +1,7 @@
 #define _USE_MATH_DEFINES
-#include "registration.h"
 #include <cmath>
-#include "nr3.h"
+#include "../include/registration.h"
+#include "../include/nr3.h"
 
 Point MyTransform :: operator () (Point p, const Parameters &param) const
 {

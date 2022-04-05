@@ -1,4 +1,4 @@
-#include "registration.h"
+#include "../include/registration.h"
 
 double MyInterpolationFunction::operator() (const Image &image, const Point &p, int &OK) const
 {
