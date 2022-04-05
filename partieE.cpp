@@ -31,11 +31,6 @@ double MyInterpolationFunction::operator() (const Image &image, const Point &p, 
 
         i2 = i1 +1;
         j2 = j1+1;
-      
-        image.setMask(i1,j1,OK);
-        image.setMask(i1,j2,OK);
-        image.setMask(i2,j1,OK);
-        image.setMask(i2,j2,OK);
 
         dx = x - i1;
         dy = y -j1;
