@@ -1,19 +1,24 @@
 #include "nr3.h"
 #include "amoeba.h"
 
+class Image;
+class Transform;
+class InterpolationFunction;
+class SimilarityCriterium;
+
 struct Point
 {
     int x, y;
+    Point(int a, int b);
     Point(VecDoub point);
-    VecDoub toVecDoub();
+    VecDoub toVecDoub() const;
 };
 
 struct Parameters
 {
     double tx, ty, theta;
     Parameters(VecDoub params);
-    void updateAll(double tx, double ty, double theta);
-    VecDoub toVecDoub();
+    VecDoub toVecDoub() const;
 };
 
 class Image
@@ -22,13 +27,16 @@ public:
     MatDoub im;
     MatDoub mask;
 
+    Image();
     Image(string filename);
     Image(int rows, int cols);
 
-    int nrows();
-    int ncols();
+    int nrows () const;
+    int ncols () const;
 
-    void deform(Image &outImg, const Parameters &param, InterpolationFunction *interpolation, Transform *transform);
+    bool isValidPoint(int row, int col) const;
+
+    void deform(Image &outImg, const Parameters &param, InterpolationFunction *interpolation, Transform *transform) const;
 };
 
 void readFromFile(Image &im, string filename);
@@ -38,7 +46,7 @@ void writeToFile(const Image &im, string filename);
 class Transform
 {
     public : 
-	virtual void operator () (Point p, const Parameters &param) const = 0;
+	virtual Point operator () (Point p, const Parameters &param) const = 0;
 };
 
 class SimilarityCriterium
@@ -74,11 +82,17 @@ public :
 
 class CostFunction
 {
+private :
+    const Image *I;
+    const Image *Iref;
+    SimilarityCriterium *similarity;
+    InterpolationFunction *interpolation;
+    Transform *transform;
 public :
-    CostFunction(const Image &I, const Image &Iref, SimilarityCriterium *similarity);
+    CostFunction(const Image *I, const Image *Iref, SimilarityCriterium *similarity, InterpolationFunction *interpolation, Transform *transform);
 	double operator () (const Parameters &param);
 };
 
 // in : images I and Iref, and cost, similarity and interpolation functions
 // out : estimated parameters outParam
-void run(const Image &I, const Image &Iref, const Parameters &inParam, Parameters &outParam, CostFunction costFunc, SimilarityCriterium *similarity, InterpolationFunction *interpolation);
+void run(const Parameters &inParam, Parameters &outParam, CostFunction costFunc);
