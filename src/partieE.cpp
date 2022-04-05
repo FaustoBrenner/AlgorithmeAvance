@@ -5,7 +5,7 @@ double MyInterpolationFunction::operator() (const Image &image, const Point &p, 
     int row = image.nrows(),  col = image.ncols();
     double x = p.x, y = p.y, res;
 
-    if(x <0 || x > row-1 || y < 0 || x > col-1)
+    if(x <0 || x > row-1 || y < 0 || y > col-1)
     {
         OK = 0;
         res = 0;

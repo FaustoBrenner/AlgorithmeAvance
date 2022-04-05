@@ -25,10 +25,11 @@ int main()
 
     // Test Cost Function
     SimilarityCriterium* SimCrit = new MySimilarityCriterium();
+    std::cout << (*SimCrit)(*I_ref, I_result) << std::endl;
     CostFunction Cost(I_float, I_ref, SimCrit, IntFunc, T);
 
     double cost = Cost(params.toVecDoub());
-    std::cout << "Cost is " << cost;
+    std::cout << "Cost is " << cost << std::endl;
 
     
     //run(inParams, outParams, *cost);

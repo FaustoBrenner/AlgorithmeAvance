@@ -43,6 +43,7 @@ bool Image::isValidPoint(int row,int col) const
 void Image::deform(Image &outImg, const Parameters &param, InterpolationFunction *interpolation, Transform *transform) const
 {
   outImg.im.resize(nrows(),ncols());
+  outImg.mask.resize(nrows(),ncols());
   for (int i=0;i<nrows();i++)
   {
     for (int j=0;j<ncols();j++)
@@ -54,6 +55,7 @@ void Image::deform(Image &outImg, const Parameters &param, InterpolationFunction
       Point p_trans = (*transform)(p,param);
       int ok=0;
       outImg.im[i][j] = (*interpolation)(*this,p_trans,ok);
+      if (ok == 1) outImg.mask[i][j] = 1;
     }
   }
 }

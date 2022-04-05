@@ -6,11 +6,11 @@
 Point MyTransform :: operator () (Point p, const Parameters &param) const
 {
     int new_x = (int) param.tx
-                        + p.x*cos(param.theta*M_PI/180) - 
+                        + p.x*cos(param.theta*M_PI/180)
                         - p.y*sin(param.theta*M_PI/180);
 
     int new_y = (int) param.ty
-                        + p.y*cos(param.theta*M_PI/180) - 
+                        + p.y*cos(param.theta*M_PI/180)
                         + p.x*sin(param.theta*M_PI/180);
     
     Point new_p = Point(new_x, new_y);
