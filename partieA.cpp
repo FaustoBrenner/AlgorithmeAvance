@@ -85,12 +85,3 @@ void readFromFile(MatDoub &im, string filename)
   // On ferme le fichier
   infile.close();
 }
-
-
-
-
-
-
-int main() {
-  std::cout << "Hello World!\n";
-}
