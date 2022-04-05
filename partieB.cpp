@@ -34,6 +34,19 @@ int Image::ncols() const
   return im.ncols();
 }
 
+void Image::setMask(int row,int col,int value)
+{
+  this->mask[row][col] = value;
+}
+
+bool Image::isValidPoint(int row,int col) const
+{
+  int val = mask[row][col];
+  if (val==1)
+    return true;
+  else
+    return false;
+}
 
 void Image::deform(Image &outImg, const Parameters &param, InterpolationFunction *interpolation, Transform *transform) const
 {
