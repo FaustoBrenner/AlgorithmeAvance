@@ -22,7 +22,7 @@ void run(const Parameters &inParam, Parameters &outParam, CostFunction costFunc)
 {
     Amoeba opt(0.01);
     VecDoub finalParam(3);
-    finalParam = opt.minimize(inParam.toVecDoub(), 3., costFunc);
+    finalParam = opt.minimize(inParam.toVecDoub(), 3., &costFunc);
     outParam = Parameters(finalParam);
 }
 
