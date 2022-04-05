@@ -92,7 +92,7 @@ private :
     Transform *transform;
 public :
     CostFunction(const Image *I, const Image *Iref, SimilarityCriterium *similarity, InterpolationFunction *interpolation, Transform *transform);
-	double operator () (const Parameters &param);
+	double operator () (const VecDoub param);
 };
 
 // in : images I and Iref, and cost, similarity and interpolation functions

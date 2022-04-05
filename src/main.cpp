@@ -5,8 +5,8 @@
 int main()
 {
     // Read images from files
-    Image* I_float = new Image("data/floating.pgm");
-    const Image* I_ref = new Image("data/reference.pgm");
+    Image* I_float = new Image("data/reference.pgm");
+    const Image* I_ref = new Image("data/floating.pgm");
 
     // Define starting parameters
     const Parameters inParams = Parameters(0,0,0);

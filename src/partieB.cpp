@@ -44,12 +44,16 @@ void Image::deform(Image &outImg, const Parameters &param, InterpolationFunction
 {
   outImg.im.resize(nrows(),ncols());
   for (int i=0;i<nrows();i++)
-    {for (int j=0;j<ncols();j++)
-      {VecDoub vec(i,j);
+  {
+    for (int j=0;j<ncols();j++)
+    {
+      VecDoub vec(2);
+      vec[0] = i;
+      vec[1] = j;
       Point p(vec);
       Point p_trans = (*transform)(p,param);
       int ok=0;
       outImg.im[i][j] = (*interpolation)(*this,p_trans,ok);
-      }
-      }
     }
+  }
+}

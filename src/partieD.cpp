@@ -32,9 +32,9 @@ CostFunction::CostFunction(const Image *I, const Image *Iref, SimilarityCriteriu
     this->transform = transform;
 }
 
-double CostFunction::operator() (const Parameters &param)
+double CostFunction::operator() (const VecDoub param)
 {
     Image Idef;
-    I->deform(Idef, param, interpolation, transform);
+    I->deform(Idef, Parameters(param), interpolation, transform);
     return (*similarity)(*Iref, Idef);
 }

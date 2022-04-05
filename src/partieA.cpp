@@ -92,7 +92,7 @@ void writeToFile(const MatDoub &im, string filename)
   MyFile << "P2 " << im.nrows() <<" "<< im.ncols()<< " 255\n";
   for (int i=0;i<im.nrows();i++)
     {
-      for (int j=0;im.ncols();j++)
+      for (int j=0;j<im.ncols();j++)
         {
           MyFile << im[i][j] << " ";
         }
