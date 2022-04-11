@@ -13,9 +13,9 @@ double MySimilarityCriterium::operator () (const Image &im1, const Image &im2) c
     {
         for (int col = 0; col < cols; col++)
         {
-            if (im1.isValidPoint(row,col) && im2.isValidPoint(row,col))
+            if (im2.isValidPoint(row,col))
             {
-                sum += std::pow(im1.im[row,col] - im2.im[row,col], 2);
+                sum += std::pow(im1.im[row][col] - im2.im[row][col], 2);
             }
         }
     }

@@ -27,9 +27,9 @@ int main()
     I_float->deform(finalImg, outParams, IntFunc, T);
     writeToFile(finalImg.im, "data/final.pgm");
 
-    std::cout << outParams.toVecDoub()[0] << std::endl;
-    std::cout << outParams.toVecDoub()[1] << std::endl;
-    std::cout << outParams.toVecDoub()[2] << std::endl;
+    // std::cout << outParams.toVecDoub()[0] << std::endl;
+    // std::cout << outParams.toVecDoub()[1] << std::endl;
+    // std::cout << outParams.toVecDoub()[2] << std::endl;
 
     return 1;
 }
